@@ -21,7 +21,13 @@ class Pagination {
 
       for (let i = 0; i < pagesCount; i++) {
         let $page = document.createElement('a')
-        $page.href = `?page=${i}`
+
+        if (i === 0) {
+          $page.href = `/`
+        } else {
+          $page.href = `?page=${i}`
+        }
+
         $page.classList.add('Pagination__page')
 
         if (this.currentPage === i) {
