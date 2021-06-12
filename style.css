@@ -80,6 +80,7 @@ h1 {
   overflow-y: scroll;
   border-right: 1px solid rgba(0,0,0, 0.1);
 }
+
 .Items {
   margin: 0 0 1em;
   margin: auto;
@@ -92,12 +93,14 @@ h1 {
   background: #fff;
   border-radius: 4px;
   padding: 1em;
-  transition: box-shadow 320ms ease-in-out;
+  transition: all 280ms ease-in-out;
   cursor: pointer;
 }
 
 .Item.is-active {
   box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.1);
+  background: var(--active);
+  color: #fff;
 }
 
 .Item p {
