@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+      window.onload = () => {
+
+        let URL = 'output.json'
+        let headers = { 'Content-Type': "application/json" }
+
+        fetch(URL, { headers })
+          .then(res => res.json())
+          .then((json) => {
+            console.log(json)
+          })
+
+      }
+    </script>
+  </head>
+  <body>
+    Test
+  </body>
+</html>
+
