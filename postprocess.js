@@ -28,9 +28,6 @@ messages.forEach((input) => {
   }
 })
 
+let time = data[data.length - 1].date
 data = data.concat(output.data)
-
-await writeJSON('output.json', {
-  time: data[0].date,
-  data
-})
+await writeJSON('output.json', { time, data })
