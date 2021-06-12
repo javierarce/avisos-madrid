@@ -5,9 +5,6 @@ class Pagination {
     this.items = items
     this.currentPage = currentPage
     this.itemsPerPage = itemsPerPage
-    var url = new URL(window.location);
-    var c = url.searchParams.get("page");
-    console.log(c)
   }
 
   on (eventName, callback) {

@@ -3,11 +3,10 @@ class Items {
     this.map = map
     this.$currentItem = undefined
     this.currentPage = 0
-    this.itemsPerPage = 10
+    this.itemsPerPage = 25
 
     let URL = `output.json?${Math.random() * 1000}`
     let headers = { 'Content-Type': "application/json" }
-
 
     fetch(URL, { headers })
       .then(res => res.json())
@@ -62,11 +61,15 @@ class Items {
   onGetData (json) {
     this.$el = document.body.querySelector('.Items')
     this.items = json.data
+    this.currentPage = +new URL(window.location).searchParams.get('page') || 0
 
-    //this.pagination = new Pagination(this.items, this.currentPage, this.itemsPerPage)
+    this.pagination = new Pagination(this.items, this.currentPage, this.itemsPerPage)
 
-    this.items.forEach(this.renderItem.bind(this))
-//    this.$el.appendChild(this.pagination.render())
+    let start = this.currentPage
+    let end = this.currentPage + this.itemsPerPage
+
+    this.items.slice(start, end).forEach(this.renderItem.bind(this))
+    this.$el.appendChild(this.pagination.render())
   }
 }
 

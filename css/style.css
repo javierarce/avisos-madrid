@@ -182,22 +182,25 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 1em auto;
 }
 
 .Pagination__page {
-  font-size: 13px;
-  color: var(--active);
   border-radius: 2px;
-  border: 1px solid #D7DADE;
+  width: 40px;
+  height: 40px;
+  font-size: .8em;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 6px;
   padding: 12px;
+  color: var(--active);
+  background: var(--white);
+  border-radius: 100%;
 }
 
 .Pagination__page.is-selected {
   color: var(--white);
-  background: var(--black);
-  border-color: var(--black)
+  background: var(--active);
 }
