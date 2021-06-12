@@ -91,6 +91,12 @@ h1 {
   font-weight:bold;
 }
 
+.Item img {
+  width: 100%;
+  margin: 0.4em 0 0 0;
+  border-radius: 2px;
+}
+
 .Footer {
   font-size: .7em;
   text-align: center;

@@ -78,7 +78,13 @@ const onLoad = () => {
         let $item = document.createElement('div')
 
         $item.classList.add('Item')
-        $item.innerHTML = `<p>${item.description}</p>`
+
+        if (item.url) {
+          $item.innerHTML = `<p>${item.description}</p> <img src="${item.url}" />`
+        } else {
+          $item.innerHTML = `<p>${item.description}</p>`
+        }
+
         $item.appendChild($footer)
         $footer.appendChild($service)
         $footer.appendChild($date)
