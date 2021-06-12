@@ -73,7 +73,7 @@ const onGetData = (json) => {
   json.data.forEach((item) => {
     let $date = createItem('date', timeSince(new Date(item.date)))
     let $service = createItem('service', item.service)
-    let $address = createItem('address', `en ${item.addres}`)
+    let $address = createItem('address', `en ${item.address}`)
     let $footer = createItem('footer')
 
     let content = `<p>${item.description}</p>`
