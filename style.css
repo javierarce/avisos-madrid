@@ -74,14 +74,10 @@ ul {
 
 .Item__footer > div {
   margin: 0 0.4em 0 0;
-}
-
-.Item__date {
   font-size: .8em;
   opacity: .6;
 }
 
-.Item__address {
-  font-size: .8em;
-  opacity: .6;
+.Item__service {
+  font-weight:bold;
 }

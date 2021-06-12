@@ -64,6 +64,10 @@ const onLoad = () => {
         $date.innerHTML = timeSince(date)
         $date.classList.add('Item__date')
 
+        let $service = document.createElement('div')
+        $service.innerHTML = item.service
+        $service.classList.add('Item__service')
+
         let $address = document.createElement('div')
         $address.innerHTML = item.address
         $address.classList.add('Item__address')
@@ -76,6 +80,7 @@ const onLoad = () => {
         $item.classList.add('Item')
         $item.innerHTML = `<p>${item.description}</p>`
         $item.appendChild($footer)
+        $footer.appendChild($service)
         $footer.appendChild($date)
         $footer.appendChild($address)
 
