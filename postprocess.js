@@ -1,9 +1,9 @@
 import { readJSON, writeJSON } from 'https://deno.land/x/flat@0.0.10/mod.ts'
 
-const filename = Deno.args[0]
+const filename = Deno.args[0] || 'input.json'
 
 const messages = await readJSON(filename)
-const output = await readJSON('output.json')
+const output = await readJSON('output.json') 
 
 let data = []
 const lastTime = new Date(output.time).getTime()
@@ -11,7 +11,6 @@ const lastTime = new Date(output.time).getTime()
 messages.forEach((input) => {
   let id = input.token
   let date = input.requested_datetime
-
   let itemDate = new Date(date).getTime()
 
   if (itemDate > lastTime) {
@@ -32,6 +31,6 @@ messages.forEach((input) => {
 data = data.concat(output.data)
 
 await writeJSON('output.json', {
-  time: new Date(),
+  time: data[0].date,
   data
 })
