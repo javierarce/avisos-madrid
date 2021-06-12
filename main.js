@@ -1,6 +1,6 @@
 const timeSince  = (date) => {
   let seconds = Math.floor((new Date() - date) / 1000)
- 
+
   let interval = seconds / 31536000
 
   if (interval > 1) {
@@ -49,51 +49,48 @@ const timeSince  = (date) => {
 
 const onLoad = () => {
 
-  let URL = 'output.json'
+  let URL = `output.json?${Math.random() * 1000}`
   let headers = { 'Content-Type': "application/json" }
 
   fetch(URL, { headers })
     .then(res => res.json())
-    .then((json) => {
-      let $content = document.body.querySelector('.Items')
+    .then(onGetData)
 
-      json.data.forEach((item) => {
+}
+const createItem = (name, data) => {
+  let $el = document.createElement('div')
+  if (data) {
+    $el.innerHTML = data
+  }
+  $el.classList.add(`Item${name ? '__' + name : '' }`)
 
-        let date = new Date(item.date)
-        let $date = document.createElement('div')
-        $date.innerHTML = timeSince(date)
-        $date.classList.add('Item__date')
+  return $el
+}
 
-        let $service = document.createElement('div')
-        $service.innerHTML = item.service
-        $service.classList.add('Item__service')
+const onGetData = (json) => {
+  let $content = document.body.querySelector('.Items')
 
-        let $address = document.createElement('div')
-        $address.innerHTML = `en ${item.address}`
-        $address.classList.add('Item__address')
+  json.data.forEach((item) => {
+    let $date = createItem('date', timeSince(new Date(item.date)))
+    let $service = createItem('service', item.service)
+    let $address = createItem('address', `en ${item.addres}`)
+    let $footer = createItem('footer')
 
-        let $footer = document.createElement('div')
-        $footer.classList.add('Item__footer')
+    let content = `<p>${item.description}</p>`
 
-        let $item = document.createElement('div')
+    if (item.url) {
+      content += `<img src="${item.url}" />`
+    } 
 
-        $item.classList.add('Item')
+    let $item = createItem(undefined, content)
 
-        if (item.url) {
-          $item.innerHTML = `<p>${item.description}</p> <img src="${item.url}" />`
-        } else {
-          $item.innerHTML = `<p>${item.description}</p>`
-        }
+    $item.appendChild($footer)
+    $footer.appendChild($service)
+    $footer.appendChild($date)
+    $footer.appendChild($address)
 
-        $item.appendChild($footer)
-        $footer.appendChild($service)
-        $footer.appendChild($date)
-        $footer.appendChild($address)
-
-        $content.appendChild($item)
-
-      })
-    })
+    $content.appendChild($item)
+  })
 }
 
 window.onload = onLoad
