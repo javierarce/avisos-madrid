@@ -2,6 +2,13 @@ class Map {
   constructor () {
     this.control = undefined
     this.map = {}
+    this.icon = new L.divIcon({
+      className: 'icon', 
+      html: '',
+      iconSize: [32, 32],
+      iconAnchor: new L.Point(16, 0)
+    })
+
     this.init()
   }
 
@@ -14,28 +21,6 @@ class Map {
       maxZoom: 20,
       minZoom: 0
     }).addTo(this.map)
-
-    this.map.on('zoomend', () => {
-      let zoom = this.map.getZoom();
-
-      if (zoom > 6) {
-        if (!this.control) {
-          this.control = Control({ position: 'topright' }).addTo(this.map);
-        }
-      } else {
-        if (this.control) {
-          this.control.remove()
-          this.control = undefined
-        }
-      }
-    })
-
-    let icon = new L.divIcon({
-      className: 'icon', 
-      html: '',
-      iconSize: [32, 32],
-      iconAnchor: new L.Point(16, 0)
-    })
 
     this.map.zoomControl.setPosition('topright');
 
@@ -61,15 +46,7 @@ class Map {
     let latlng= { lat, lng }
 
     if (!this.marker) {
-
-      let icon = new L.divIcon({
-        className: 'icon', 
-        html: '',
-        iconSize: [32, 32],
-        iconAnchor: new L.Point(16, 0)
-      })
-
-      this.marker = L.marker(latlng, { icon })
+      this.marker = L.marker(latlng, { icon: this.icon })
     } else {
       this.marker.setLatLng(latlng)
 
