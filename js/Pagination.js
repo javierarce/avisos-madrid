@@ -23,14 +23,14 @@ class Pagination {
         let $page = document.createElement('a')
 
         if (i === 0) {
-          $page.href = `/`
+          $page.href = window.location.origin + window.location.pathname
         } else {
-          $page.href = `?page=${i}`
+          $page.href = `?page=${i + 1}`
         }
 
         $page.classList.add('Pagination__page')
 
-        if (this.currentPage === i) {
+        if (this.currentPage === i + 1) {
           $page.classList.add('is-selected')
         }
 
