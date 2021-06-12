@@ -1,8 +1,11 @@
-# avisos-madrid
+# Avisos Madrid
 
-https://javierarce.github.io/avisos-madrid
+Avisos enviados por los ciudadanos al [servicio de avisos de Madrid](https://avisos.madrid.es).
 
-### Explora los datos
-https://flatgithub.com/javierarce/avisos-madrid?filename=output.json&tab=data
+[Consulta los datos en formato blog](https://javierarce.github.io/avisos-madrid) o descarga y [explora los datos](https://flatgithub.com/javierarce/avisos-madrid?filename=output.json&tab=data).
 
-Origen de los datos: Ayuntamiento de Madrid.
+Este repositorio se actualiza automáticamente cada 15 minutos.
+
+### Origen de los datos
+
+Ayuntamiento de Madrid.
