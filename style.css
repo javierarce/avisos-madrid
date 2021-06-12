@@ -22,8 +22,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  padding: 2em;
 }
 
 a {
@@ -50,9 +48,20 @@ ul {
   list-style: none;
   padding: 0;
 }
+
 .Content {
+  padding: 1em;
   width: 800px;
   margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 1em;
+}
+
+.Items {
+  margin: 0 0 1em;
 }
 
 .Item {
@@ -80,4 +89,9 @@ ul {
 
 .Item__service {
   font-weight:bold;
+}
+
+.Footer {
+  font-size: .7em;
+  text-align: center;
 }

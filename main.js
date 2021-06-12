@@ -55,7 +55,7 @@ const onLoad = () => {
   fetch(URL, { headers })
     .then(res => res.json())
     .then((json) => {
-      let $content = document.body.querySelector('.Content')
+      let $content = document.body.querySelector('.Items')
 
       json.data.forEach((item) => {
 
