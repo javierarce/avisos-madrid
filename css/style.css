@@ -75,7 +75,7 @@ h1 {
 
 .Posts {
   flex: 0.6;
-  padding:  2em 4em;
+  padding:  2em;
   overflow: hidden;
   overflow-y: scroll;
   border-right: 1px solid rgba(0,0,0, 0.1);
@@ -108,18 +108,18 @@ h1 {
 }
 
 .Item__footer {
-  margin: .8em 0 0 0;
+  margin: 0.8em 0 0 0;
   display: flex;
+  opacity: 0.5;
 }
 
 .Item__footer > div {
-  margin: 0 0.4em 0 0;
   font-size: .8em;
-  opacity: .6;
 }
 
 .Item__service {
-  font-weight:bold;
+  margin: 0 0.4em 0 0;
+  font-weight: bold;
 }
 
 .Item img {
