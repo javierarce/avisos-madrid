@@ -176,3 +176,28 @@ h1 {
   }
 }
 
+
+.Pagination {
+  user-select: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Pagination__page {
+  font-size: 13px;
+  color: var(--active);
+  border-radius: 2px;
+  border: 1px solid #D7DADE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 6px;
+  padding: 12px;
+}
+
+.Pagination__page.is-selected {
+  color: var(--white);
+  background: var(--black);
+  border-color: var(--black)
+}

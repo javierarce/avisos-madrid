@@ -2,9 +2,12 @@ class Items {
   constructor (map) {
     this.map = map
     this.$currentItem = undefined
+    this.currentPage = 0
+    this.itemsPerPage = 10
 
     let URL = `output.json?${Math.random() * 1000}`
     let headers = { 'Content-Type': "application/json" }
+
 
     fetch(URL, { headers })
       .then(res => res.json())
@@ -58,8 +61,12 @@ class Items {
 
   onGetData (json) {
     this.$el = document.body.querySelector('.Items')
-    json.data.forEach(this.renderItem.bind(this))
-  }
+    this.items = json.data
 
+    //this.pagination = new Pagination(this.items, this.currentPage, this.itemsPerPage)
+
+    this.items.forEach(this.renderItem.bind(this))
+//    this.$el.appendChild(this.pagination.render())
+  }
 }
 
