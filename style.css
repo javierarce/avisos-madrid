@@ -63,7 +63,9 @@ ul {
 .Header a {
   font-size: .8em;
 }
+
 h1 {
+  line-height: 145%;
   margin-bottom: 0.4em;
 }
 
@@ -81,10 +83,11 @@ h1 {
 }
 
 .Item p {
-  margin: 0 0 0.2em;
+  margin: 0;
 }
 
 .Item__footer {
+  margin: .8em 0 0 0;
   display: flex;
 }
 
@@ -108,3 +111,28 @@ h1 {
   font-size: .7em;
   text-align: center;
 }
+
+@media only screen and (max-width: 640px) {
+.Header {
+  font-size: .8em;
+}
+
+.Header h1 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.Content {
+  width: 100%;
+}
+
+.Item__footer {
+  flex-direction: column;
+}
+
+.Item__footer > div {
+  margin: 0 0 0 0;
+}
+
+}
+
