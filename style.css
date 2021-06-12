@@ -55,9 +55,16 @@ ul {
   margin: auto;
 }
 
-h1 {
+.Header {
   text-align: center;
   margin: 0 0 1em;
+}
+
+.Header a {
+  font-size: .8em;
+}
+h1 {
+  margin-bottom: 0.4em;
 }
 
 .Items {
