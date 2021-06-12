@@ -24,6 +24,6 @@ jobs:
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
-          http_url: https://sic-apipro.madrid.es/requests?jurisdiction_ids=es.madrid&limit=100
+          http_url: https://sic-apipro.madrid.es/requests?jurisdiction_ids=es.madrid&limit=300
           downloaded_filename: input.json
           postprocess: postprocess.js
