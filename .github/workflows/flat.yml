@@ -26,3 +26,4 @@ jobs:
         with:
           http_url: https://sic-apipro.madrid.es/requests?jurisdiction_ids=es.madrid&limit=100
           downloaded_filename: input.json
+          postprocess: postprocess.js
