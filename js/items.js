@@ -63,7 +63,7 @@ class Items {
     this.items = json.data
     this.currentPage = +new URL(window.location).searchParams.get('page') || 0
 
-    this.pagination = new Pagination(this.items, this.currentPage, this.itemsPerPage)
+    this.pagination = new Pagination(this.items.length, this.currentPage, this.itemsPerPage)
 
     let start = this.currentPage
     let end = this.currentPage + this.itemsPerPage

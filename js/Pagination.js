@@ -1,8 +1,8 @@
 class Pagination {
-  constructor (items, currentPage, itemsPerPage) {
+  constructor (itemsLength, currentPage, itemsPerPage) {
     this.className = this.constructor.name
 
-    this.items = items
+    this.itemsLength = itemsLength
     this.currentPage = currentPage
     this.itemsPerPage = itemsPerPage
   }
@@ -15,9 +15,9 @@ class Pagination {
     this.$element = document.createElement('div')
     this.$element.classList.add(this.className)
 
-    let pagesCount = this.items.length / this.itemsPerPage
+    let pagesCount = this.itemsLength / this.itemsPerPage
 
-    if (this.items.length > this.itemsPerPage) {
+    if (this.itemsLength > this.itemsPerPage) {
 
       for (let i = 0; i < pagesCount; i++) {
         let $page = document.createElement('a')
