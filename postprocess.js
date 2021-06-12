@@ -11,7 +11,7 @@ const lastID = output.lastID
 messages.forEach((input) => {
   let id = input.token
 
-  if (lastID === id) {
+  if (+lastID === +id) {
     console.log(`Stopped at ${id}`)
     return
   }
