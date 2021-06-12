@@ -1,3 +1,6 @@
+let map = undefined
+let $currentItem = undefined
+
 const timeSince  = (date) => {
   let seconds = Math.floor((new Date() - date) / 1000)
 
@@ -48,6 +51,7 @@ const timeSince  = (date) => {
 }
 
 const onLoad = () => {
+  map = new Map()
 
   let URL = `output.json?${Math.random() * 1000}`
   let headers = { 'Content-Type': "application/json" }
@@ -90,6 +94,16 @@ const onGetData = (json) => {
     $footer.appendChild($address)
 
     $content.appendChild($item)
+
+    $item.onclick = () => {
+      if ($currentItem) {
+        $currentItem.classList.remove('is-active')
+      }
+
+      $item.classList.add('is-active')
+      map.visit(item.lat, item.long)
+      $currentItem = $item
+    }
   })
 }
 
