@@ -12,6 +12,7 @@ messages.forEach((input) => {
   let id = input.token
 
   if (lastID === id) {
+    console.log(`Stopped at ${id}`)
     return
   }
 
@@ -30,6 +31,9 @@ messages.forEach((input) => {
 })
 
 data = data.concat(output.data)
+
+console.log('Writting')
+console.log(data)
 
 await writeJSON('output.json', {
   lastID: data[data.length - 1].id,
