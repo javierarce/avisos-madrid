@@ -6,6 +6,7 @@ const messages = await readJSON(filename)
 const output = await readJSON('output.json') 
 
 let data = []
+
 const lastTime = new Date(output.time).getTime()
 
 messages.forEach((input) => {
@@ -28,6 +29,6 @@ messages.forEach((input) => {
   }
 })
 
-let time = data[data.length - 1].date
 data = data.concat(output.data)
+let time = data[0].date
 await writeJSON('output.json', { time, data })
