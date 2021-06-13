@@ -75,6 +75,7 @@ class Items {
     let start = (this.currentPage - 1) * this.itemsPerPage
     let end = start + this.itemsPerPage
 
+    this.$el.appendChild(this.pagination.renderArrows())
     this.items.slice(start, end).forEach(this.renderItem.bind(this))
     this.$el.appendChild(this.pagination.render())
   }

@@ -8,41 +8,73 @@ class Pagination {
   }
 
   on (eventName, callback) {
-    this.$element.addEventListener(eventName, callback)
+    this.$pagination.addEventListener(eventName, callback)
   }
 
   render () {
-    this.$element = document.createElement('div')
-    this.$element.classList.add(this.className)
+    this.$pagination = document.createElement('div')
+    this.$pagination.classList.add(this.className)
 
     if (this.itemsLength > this.itemsPerPage) {
-      this.renderRegularPagination()
+      this.renderPrevPagination()
+      this.renderNextPagination()
     }
 
-    return this.$element
+    return this.$pagination
   }
 
-  renderSpecialPagination () {
+  renderArrows () {
+    this.$arrowPagination = document.createElement('div')
+    this.$arrowPagination.classList.add(this.className + '__arrows')
+
+    if (this.itemsLength > this.itemsPerPage) {
+      let $prev = this.renderPrevArrowPagination()
+      let $next = this.renderNextArrowPagination()
+
+      this.$arrowPagination.appendChild($prev)
+      this.$arrowPagination.appendChild($next)
+    }
+
+    return this.$arrowPagination
+  }
+
+  renderPrevArrowPagination () {
+    let $prev
+
+    if (this.currentPage > 1) {
+      $prev = document.createElement('a')
+
+      if (this.currentPage === 2) {
+        $prev.href = window.location.origin + window.location.pathname
+      } else {
+        $prev.href = `?page=${this.currentPage - 1}`
+      }
+    } else {
+      $prev = document.createElement('span')
+    }
+
+    $prev.innerText = '←'
+    $prev.classList.add('Pagination__page')
+
+    return $prev
+  }
+
+  renderNextArrowPagination () {
     let pagesCount = this.itemsLength / this.itemsPerPage
 
-    for (let i = 1; i <= 8; i++) {
-      let $page = document.createElement('a')
+    let $next
 
-      if (i === 0) {
-        $page.href = window.location.origin + window.location.pathname
-      } else {
-        $page.href = `?page=${i}`
-      }
-
-      $page.classList.add('Pagination__page')
-
-      if (this.currentPage === i) {
-        $page.classList.add('is-selected')
-      }
-
-      $page.innerText = i 
-      this.$element.appendChild($page)
+    if (this.currentPage < pagesCount) {
+      $next = document.createElement('a')
+      $next.href = `?page=${this.currentPage+ 1}`
+    } else {
+      $next = document.createElement('span')
     }
+
+    $next.classList.add('Pagination__page')
+    $next.innerText = '→'
+
+    return $next
   }
 
   renderPrevPagination () {
@@ -62,7 +94,7 @@ class Pagination {
 
     $prev.innerText = 'Anterior'
     $prev.classList.add('Pagination__page')
-    this.$element.appendChild($prev)
+    this.$pagination.appendChild($prev)
   }
 
   renderNextPagination () {
@@ -79,11 +111,6 @@ class Pagination {
 
     $next.classList.add('Pagination__page')
     $next.innerText = 'Siguiente'
-    this.$element.appendChild($next)
-  }
-
-  renderRegularPagination () {
-    this.renderPrevPagination()
-    this.renderNextPagination()
+    this.$pagination.appendChild($next)
   }
 }
