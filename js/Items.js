@@ -72,7 +72,7 @@ class Items {
 
     this.pagination = new Pagination(this.items.length, this.currentPage, this.itemsPerPage)
 
-    let start = this.currentPage - 1
+    let start = (this.currentPage - 1) * this.itemsPerPage
     let end = start + this.itemsPerPage
 
     this.items.slice(start, end).forEach(this.renderItem.bind(this))
