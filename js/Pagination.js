@@ -3,7 +3,7 @@ class Pagination {
     this.className = this.constructor.name
 
     this.itemsLength = itemsLength
-    this.currentPage = currentPage
+    this.currentPage = currentPage 
     this.itemsPerPage = itemsPerPage
   }
 
@@ -15,30 +15,68 @@ class Pagination {
     this.$element = document.createElement('div')
     this.$element.classList.add(this.className)
 
-    let pagesCount = this.itemsLength / this.itemsPerPage
-
     if (this.itemsLength > this.itemsPerPage) {
-
-      for (let i = 0; i < pagesCount; i++) {
-        let $page = document.createElement('a')
-
-        if (i === 0) {
-          $page.href = window.location.origin + window.location.pathname
-        } else {
-          $page.href = `?page=${i + 1}`
-        }
-
-        $page.classList.add('Pagination__page')
-
-        if (this.currentPage === i + 1) {
-          $page.classList.add('is-selected')
-        }
-
-        $page.innerText = i + 1
-        this.$element.appendChild($page)
-      }
+      this.renderRegularPagination()
     }
 
     return this.$element
+  }
+
+  renderSpecialPagination () {
+    let pagesCount = this.itemsLength / this.itemsPerPage
+
+    for (let i = 1; i <= 8; i++) {
+      let $page = document.createElement('a')
+
+      if (i === 0) {
+        $page.href = window.location.origin + window.location.pathname
+      } else {
+        $page.href = `?page=${i}`
+      }
+
+      $page.classList.add('Pagination__page')
+
+      if (this.currentPage === i) {
+        $page.classList.add('is-selected')
+      }
+
+      $page.innerText = i 
+      this.$element.appendChild($page)
+    }
+  }
+
+  renderRegularPagination () {
+    let pagesCount = this.itemsLength / this.itemsPerPage
+
+    let $prev
+
+    if (this.currentPage > 1) {
+      $prev = document.createElement('a')
+
+      if (this.currentPage === 2) {
+        $prev.href = window.location.origin + window.location.pathname
+      } else {
+        $prev.href = `?page=${this.currentPage - 1}`
+      }
+    } else {
+      $prev = document.createElement('span')
+    }
+
+    $prev.innerText = 'Anterior'
+    $prev.classList.add('Pagination__page')
+    this.$element.appendChild($prev)
+
+    let $next
+
+    if (this.currentPage < pagesCount) {
+      $next = document.createElement('a')
+      $next.href = `?page=${this.currentPage+ 1}`
+    } else {
+      $next = document.createElement('span')
+    }
+
+    $next.classList.add('Pagination__page')
+    $next.innerText = 'Siguiente'
+    this.$element.appendChild($next)
   }
 }
