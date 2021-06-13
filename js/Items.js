@@ -27,22 +27,22 @@ class Items {
   }
 
   renderItem (item) {
+    let $item = this.createItem()
+    let content = item.description
+    if (item.url) {
+      content += `<img src="${item.url}" />`
+    } 
+
+    let $content = this.createItem('content', content)
     let $service = this.createItem('service', item.service)
     let $footer = this.createItem('footer')
 
     let time = timeSince(new Date(item.date))
     let $metadata = this.createItem('metadata', `${time} en ${item.address}`)
 
-    let content = `<p>${item.description}</p>`
-
-    if (item.url) {
-      content += `<img src="${item.url}" />`
-    } 
-
-    let $item = this.createItem(undefined, content)
-
+    $item.appendChild($service)
+    $item.appendChild($content)
     $item.appendChild($footer)
-    $footer.appendChild($service)
     $footer.appendChild($metadata)
 
     this.$el.appendChild($item)

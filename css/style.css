@@ -98,18 +98,17 @@ h1 a {
   background: #fff;
   border-radius: 4px;
   padding: 1em;
-  transition: all 280ms ease-in-out;
+  transition: background 280ms ease-in-out;
   cursor: pointer;
 }
 
 .Item.is-active {
-  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.1);
   background: var(--active);
   color: #fff;
 }
 
-.Item p {
-  margin: 0;
+.Item.is-active .Item__service{
+  color: #fff;
 }
 
 .Item__footer {
@@ -123,8 +122,11 @@ h1 a {
 }
 
 .Item__service {
-  margin: 0 0.4em 0 0;
-  font-weight: bold;
+  margin: 0 0 0.8em 0;
+  font-weight: 500;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: var(--active);
 }
 
 .Item img {
