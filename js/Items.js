@@ -27,8 +27,13 @@ class Items {
   }
 
   renderItem (item) {
+    if (!item.description || item.description === '.') {
+      return
+    }
+
     let $item = this.createItem()
     let content = item.description
+
     if (item.url) {
       content += `<img src="${item.url}" />`
     } 
@@ -72,4 +77,3 @@ class Items {
     this.$el.appendChild(this.pagination.render())
   }
 }
-
