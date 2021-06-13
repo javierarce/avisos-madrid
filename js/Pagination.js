@@ -45,9 +45,7 @@ class Pagination {
     }
   }
 
-  renderRegularPagination () {
-    let pagesCount = this.itemsLength / this.itemsPerPage
-
+  renderPrevPagination () {
     let $prev
 
     if (this.currentPage > 1) {
@@ -65,6 +63,10 @@ class Pagination {
     $prev.innerText = 'Anterior'
     $prev.classList.add('Pagination__page')
     this.$element.appendChild($prev)
+  }
+
+  renderNextPagination () {
+    let pagesCount = this.itemsLength / this.itemsPerPage
 
     let $next
 
@@ -78,5 +80,10 @@ class Pagination {
     $next.classList.add('Pagination__page')
     $next.innerText = 'Siguiente'
     this.$element.appendChild($next)
+  }
+
+  renderRegularPagination () {
+    this.renderPrevPagination()
+    this.renderNextPagination()
   }
 }

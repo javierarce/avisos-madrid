@@ -3,7 +3,7 @@ class Items {
     this.map = map
     this.$currentItem = undefined
     this.currentPage = 1
-    this.itemsPerPage = 1
+    this.itemsPerPage = 25
 
     let URL = `output.json?${Math.random() * 1000}`
     let headers = { 'Content-Type': "application/json" }

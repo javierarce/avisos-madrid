@@ -58,13 +58,18 @@ ul {
   margin: 0 0 1.4em 0;
 }
 
-.Header a {
+.Header > a {
   font-size: .8em;
 }
 
 h1 {
   margin: 0;
   line-height: 145%;
+}
+
+h1 a {
+  color: var(--text);
+  font-weight: bold;
 }
 
 .Content {
