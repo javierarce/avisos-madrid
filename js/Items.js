@@ -11,7 +11,6 @@ class Items {
     fetch(URL, { headers })
       .then(res => res.json())
       .then(this.onGetData.bind(this))
-
   }
 
   createItem (name, data) {
@@ -26,12 +25,15 @@ class Items {
     return $el
   }
 
-  renderItem (item) {
-    if (!item.description || item.description === '.') {
-      return
+  renderItem (item, index) {
+    let $item = this.createItem()
+
+    if (index === 0) {
+      this.$currentItem = $item
+      $item.classList.add('is-active')
+      this.map.visit(item.lat, item.long)
     }
 
-    let $item = this.createItem()
     let content = item.description
 
     if (item.url) {
