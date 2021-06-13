@@ -1,6 +1,7 @@
 # Avisos Madrid
 
-Avisos enviados por los ciudadanos al [servicio de avisos de Madrid](https://avisos.madrid.es).  
+Este repositorio contiene avisos e incidencias reportadas por los ciudadanos al [servicio de avisos de Madrid](https://avisos.madrid.es) relativas al mobiliario urbano, el alumbrado, la limpieza urbana y de residuos, las zonas verdes, el arbolado, las aceras y calzadas, vehículos mal aparcados…
+
 
 Puedes consultar los datos [en formato blog](https://javierarce.github.io/avisos-madrid), [descargarlos en formato ```json```](output.json) o [explorarlos](https://flatgithub.com/javierarce/avisos-madrid?filename=output.json&tab=data).
 
