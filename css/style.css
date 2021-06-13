@@ -4,7 +4,7 @@
 
 :root {
   --white: #FFFFFF;
-  --active: #F06E2F; 
+  --active: rgba(240, 110, 47, 1);
   --hover: hsl(26deg 42% 26%);
   --text: hsl(26deg 42% 26%);
   --background: #fef6f0;
@@ -95,20 +95,24 @@ h1 a {
   font-size: .8em;
   line-height: 145%;
   margin: 0 0 1em 0;
-  background: #fff;
+  background: var(--white);
   border-radius: 4px;
   padding: 1em;
-  transition: background 280ms ease-in-out;
   cursor: pointer;
+  transition: background 160ms ease-in-out;
+}
+
+.Item:hover {
+  background: rgba(240, 110, 47, 0.1);
 }
 
 .Item.is-active {
   background: var(--active);
-  color: #fff;
+  color: var(--white);
 }
 
 .Item.is-active .Item__service{
-  color: #fff;
+  color: var(--white);
 }
 
 .Item__footer {
@@ -121,12 +125,17 @@ h1 a {
   font-size: .8em;
 }
 
+.Item__metadata {
+  user-select: none;
+}
+
 .Item__service {
   margin: 0 0 0.8em 0;
   font-weight: 500;
   font-size: 0.8em;
   font-weight: 500;
   color: var(--active);
+  user-select: none;
 }
 
 .Item img {
@@ -185,19 +194,19 @@ h1 a {
 
 
 .Pagination {
-  user-select: none;
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 1em auto;
+  user-select: none;
 }
 
 .Pagination__arrows {
-  user-select: none;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin: 0 0 .4em 0;
+  user-select: none;
 }
 
 .Pagination__pageRound {
@@ -250,4 +259,11 @@ a.Pagination__page {
 .Pagination__page.is-selected {
   color: var(--white);
   background: var(--active);
+}
+
+::selection {
+  background: rgba(0, 75, 140, .1);
+}
+::-moz-selection {
+  background: rgba(0, 75, 140, .1);
 }
