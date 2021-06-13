@@ -3,22 +3,20 @@
 }
 
 :root {
-  --white: #FFFFFF;
   --active: rgba(240, 110, 47, 1);
-  --hover: hsl(26deg 42% 26%);
-  --text: hsl(26deg 42% 26%);
   --background: #fef6f0;
-
   --blue: #2477BE;
   --gray: #F4F4F4;
-  --green: #23D5AB;
-  --red: #F44336;
+  --hover: hsl(26deg 42% 26%);
   --shadow: 0,0,0;
+  --text: hsl(26deg 42% 26%);
+  --white: #FFFFFF;
 }
 
 html, body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-size: 1.4em;
@@ -98,12 +96,12 @@ h1 a {
 }
 
 .Item {
-  font-size: .8em;
-  line-height: 145%;
   margin: 0 0 1em 0;
   background: var(--white);
   border-radius: 4px;
   padding: 1em;
+  font-size: 0.8em;
+  line-height: 145%;
   cursor: pointer;
   transition: background 160ms ease-in-out;
 }
@@ -133,15 +131,16 @@ h1 a {
 
 .Item__metadata {
   user-select: none;
+  line-height: 145%;
 }
 
 .Item__service {
   margin: 0 0 0.8em 0;
   font-weight: 500;
   font-size: 0.8em;
-  font-weight: 500;
   color: var(--active);
   user-select: none;
+  line-height: 145%;
 }
 
 .Item img {
@@ -154,50 +153,6 @@ h1 a {
   font-size: .7em;
   text-align: center;
 }
-
-@media only screen and (max-width: 1200px) {
-  .Posts {
-    flex: 1;
-    padding: 1em;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .Content {
-    flex-direction: column;
-  }
-
-  .Posts {
-    border-right: none;
-    border-bottom: 1px solid rgba(0,0,0, 0.1);
-    padding: 1em;
-    flex: 1;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .Header {
-    font-size: .8em;
-  }
-
-  .Header h1 {
-    font-size: 1.2em;
-    margin: 0;
-  }
-
-  .Content {
-    width: 100%;
-  }
-
-  .Item__footer {
-    flex-direction: column;
-  }
-
-  .Item__footer > div {
-    margin: 0 0 0 0;
-  }
-}
-
 
 .Pagination {
   width: 100%;
@@ -296,7 +251,7 @@ a.Pagination__page {
 }
 
 .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
-border: none;
+  border: none;
 }
 
 .Map .leaflet-control-zoom-in, 
@@ -331,3 +286,49 @@ border: none;
   border-bottom: none;
 }
 
+@media only screen and (max-width: 1200px) {
+  .Posts {
+    flex: 1;
+    padding: 1em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .Content {
+    flex-direction: column;
+  }
+
+  .Posts {
+    flex: 2;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.1);
+    padding: 0.4em;
+    font-size: .9em;
+  }
+  .Header {
+    margin: 0 0 .8em 0;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .Header {
+    font-size: .8em;
+  }
+
+  .Header h1 {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  .Content {
+    width: 100%;
+  }
+
+  .Item__footer {
+    flex-direction: column;
+  }
+
+  .Item__footer > div {
+    margin: 0 0 0 0;
+  }
+}
