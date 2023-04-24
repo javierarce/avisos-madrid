@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v3
       # The Flat Action step. We fetch the data in the http_url and save it as downloaded_filename
       - name: Fetch data
-        uses: githubocto/flat@v4
+        uses: githubocto/flat@v3
         with:
           http_url: https://sic-apipro.madrid.es/requests?jurisdiction_ids=es.madrid&limit=100
           downloaded_filename: input.json
