@@ -5,6 +5,8 @@ class Items {
     this.currentPage = 1
     this.itemsPerPage = 25
 
+    this.$spinner = document.body.querySelector('.js-spinner')
+
     let URL = `output.json?${Math.random() * 1000}`
     let headers = { 'Content-Type': "application/json" }
 
@@ -66,6 +68,8 @@ class Items {
   }
 
   onGetData (json) {
+    this.$spinner.classList.remove('is-visible')
+
     this.$el = document.body.querySelector('.Items')
     this.items = json.data
     this.currentPage = +new URL(window.location).searchParams.get('page') || 1

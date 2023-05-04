@@ -83,6 +83,7 @@ h1 a {
 }
 
 .Posts {
+  position: relative;
   flex: 0.6;
   padding:  2em;
   overflow: hidden;
@@ -286,6 +287,45 @@ a.Pagination__page {
   border-bottom: none;
 }
 
+.Spinner {
+  --borderWidth: 4px;
+  --mainSpinnerColor: var(--active);
+  --activeSpinnerColor: var(--white);
+  border-top: var(--borderWidth) solid var(--mainSpinnerColor);
+  border-right: var(--borderWidth) solid var(--mainSpinnerColor);
+  border-bottom: var(--borderWidth) solid var(--mainSpinnerColor);
+  border-left: var(--borderWidth) solid var(--activeSpinnerColor);
+  animation: load8 0.8s infinite linear;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms ease-in-out, visibility 240ms ease-in-out;
+  z-index: 10;
+}
+
+.Spinner.is-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: -1em 0 0 -1em;
+}
+
+.Spinner.is-visible {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.Spinner, .Spinner:after {
+  --size: 2em;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+}
+
+@keyframes load8 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
 @media only screen and (max-width: 1200px) {
   .Posts {
     flex: 1;
@@ -332,3 +372,4 @@ a.Pagination__page {
     margin: 0 0 0 0;
   }
 }
+
