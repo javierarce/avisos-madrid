@@ -19,7 +19,7 @@ jobs:
       - name: Check out repo
       - uses: actions/checkout@master
         name: Fetch data
-        uses: githubocto/flat@v3
+        uses: javierarce/flat@main
         with:
           http_url: https://sic-apipro.madrid.es/requests?jurisdiction_ids=es.madrid&limit=100
           downloaded_filename: input.json
