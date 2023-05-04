@@ -1,4 +1,4 @@
-import { readJSON, writeJSON } from 'https://deno.land/x/flat@0.0.10/mod.ts'
+import { readJSON, writeJSON } from 'https://deno.land/x/flat@0.0.15/mod.ts'
 
 const filename = Deno.args[0] || 'input.json'
 
