@@ -30,6 +30,8 @@ class Items {
   renderItem (item, index) {
     let $item = this.createItem()
 
+    $item.id = item.id
+
     if (index === 0) {
       this.$currentItem = $item
       $item.classList.add('is-active')
@@ -56,15 +58,23 @@ class Items {
 
     this.$el.appendChild($item)
 
-    $item.onclick = () => {
-      if (this.$currentItem) {
-       this.$currentItem.classList.remove('is-active')
-      }
-
-      $item.classList.add('is-active')
-      this.map.visit(item.lat, item.long)
-      this.$currentItem = $item
+    if (this.id === item.id) {
+      this.activateItem($item, item)
     }
+
+    $item.onclick = this.activateItem.bind(this, $item, item)
+  }
+
+  activateItem ($item, item) {
+    if (this.$currentItem) {
+      this.$currentItem.classList.remove('is-active')
+    }
+
+    $item.classList.add('is-active')
+    this.map.visit(item.lat, item.long)
+    this.$currentItem = $item
+    history.pushState({}, '', `?id=${item.id}&page=${this.currentPage}`)
+    setTimeout(() => $item.scrollIntoView({ behavior: 'smooth' }), 100)
   }
 
   onGetData (json) {
@@ -73,6 +83,7 @@ class Items {
     this.$el = document.body.querySelector('.Items')
     this.items = json.data
     this.currentPage = +new URL(window.location).searchParams.get('page') || 1
+    this.id = new URL(window.location).searchParams.get('id')
 
     this.pagination = new Pagination(this.items.length, this.currentPage, this.itemsPerPage)
 
