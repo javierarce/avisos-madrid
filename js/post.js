@@ -48,8 +48,7 @@ const timeSince  = (date) => {
 }
 
 const onLoad = () => {
-  map = new Map()
-  items = new Items(map)
+  map = new Map(lat, long)
 }
 
 window.onload = onLoad

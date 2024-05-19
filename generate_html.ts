@@ -35,9 +35,7 @@ async function generateHTML() {
   </script>
   <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
   <script src="/js/Map.js"></script>
-  <script src="/js/Pagination.js"></script>
-  <script src="/js/Items.js"></script>
-  <script src="/js/main.js"></script>
+  <script src="/js/post.js"></script>
 </head>
 <body>
   <div class="Content">

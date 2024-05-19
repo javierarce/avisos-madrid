@@ -4,7 +4,7 @@ const filename = Deno.args[0] || 'input.json'
 
 const messages = await readJSON(filename)
 const output = await readJSON('output.json') 
-const backup = await readJSON('backup.json') 
+const backup = await readJSON('data.json') 
 
 let backupData = []
 const data = []
@@ -35,5 +35,5 @@ messages.forEach((input) => {
 
 backupData = backupData.concat(backup.data)
 const time = data[0].date
-await writeJSON('backup.json', { time, data:backupData })
+await writeJSON('data.json', { time, data:backupData })
 await writeJSON('output.json', { time, data })

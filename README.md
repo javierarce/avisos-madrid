@@ -5,8 +5,8 @@ Este repositorio contiene avisos e incidencias reportadas por los ciudadanos al 
 Puedes:
 
 - Consultar los datos [en formato blog](https://javierarce.github.io/avisos-madrid)
-- [Descargarlos en formato ```json```](output.json)
-- [Explorarlos](https://flatgithub.com/javierarce/avisos-madrid?filename=output.json&tab=data)
+- [Descargarlos en formato ```json```](data.json)
+- [Explorarlos](https://flatgithub.com/javierarce/avisos-madrid?filename=data.json&tab=data)
 
 Este repositorio se actualiza automágicamente cada: **10 minutos**.
 
