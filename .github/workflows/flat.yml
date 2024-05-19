@@ -14,13 +14,26 @@ jobs:
     steps: 
       - name: Check out repo
         uses: actions/checkout@v3
+      
       - name: Setup deno
         uses: denoland/setup-deno@main
         with:
           deno-version: v1.x     
+      
       - name: Fetch data 
         uses: githubocto/flat@v3
         with:
           http_url: https://sic-apipro.madrid.es/requests?jurisdiction_ids=es.madrid&limit=100
           downloaded_filename: input.json
           postprocess: postprocess.js
+
+      - name: Generate HTML Pages
+        run: deno run --allow-read --allow-write generate_html.ts
+
+      - name: Commit and Push Generated HTML
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add docs/*
+          git commit -m "Update HTML pages" -a || echo "No changes to commit"
+          git push
