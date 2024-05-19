@@ -1,6 +1,8 @@
 class Map {
-  constructor () {
+  constructor (lat, long) {
     this.control = undefined
+    this.lat = lat
+    this.long = long
     this.map = {}
     this.icon = new L.divIcon({
       className: 'icon', 
@@ -10,6 +12,10 @@ class Map {
     })
 
     this.init()
+
+    if (this.lat && this.long) {
+      this.visit(this.lat, this.long)
+    }
   }
 
   init () {
@@ -39,7 +45,6 @@ class Map {
     let Control = function(opts) {
       return new L.Control.Watermark(opts);
     }
-
   }
 
   visit (lat, lng) {

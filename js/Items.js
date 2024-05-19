@@ -73,7 +73,7 @@ class Items {
     $item.classList.add('is-active')
     this.map.visit(item.lat, item.long)
     this.$currentItem = $item
-    history.pushState({}, '', `?id=${item.id}&page=${this.currentPage}`)
+    history.pushState({}, '', `/m/${item.id}`)
     setTimeout(() => $item.scrollIntoView({ behavior: 'smooth' }), 100)
   }
 
