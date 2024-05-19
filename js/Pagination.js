@@ -28,8 +28,8 @@ class Pagination {
     this.$arrowPagination.classList.add(this.className + '__arrows')
 
     if (this.itemsLength > this.itemsPerPage) {
-      let $prev = this.renderPrevArrowPagination()
-      let $next = this.renderNextArrowPagination()
+      const $prev = this.renderPrevArrowPagination()
+      const $next = this.renderNextArrowPagination()
 
       this.$arrowPagination.appendChild($prev)
       this.$arrowPagination.appendChild($next)
@@ -47,7 +47,7 @@ class Pagination {
       if (this.currentPage === 2) {
         $prev.href = window.location.origin + window.location.pathname
       } else {
-        $prev.href = `?page=${this.currentPage - 1}`
+        $prev.href = `/?page=${this.currentPage - 1}`
       }
     } else {
       $prev = document.createElement('span')
@@ -60,13 +60,13 @@ class Pagination {
   }
 
   renderNextArrowPagination () {
-    let pagesCount = this.itemsLength / this.itemsPerPage
+    const pagesCount = this.itemsLength / this.itemsPerPage
 
     let $next
 
     if (this.currentPage < pagesCount) {
       $next = document.createElement('a')
-      $next.href = `?page=${this.currentPage+ 1}`
+      $next.href = `/?page=${this.currentPage+ 1}`
     } else {
       $next = document.createElement('span')
     }
@@ -86,7 +86,7 @@ class Pagination {
       if (this.currentPage === 2) {
         $prev.href = window.location.origin + window.location.pathname
       } else {
-        $prev.href = `?page=${this.currentPage - 1}`
+        $prev.href = `/?page=${this.currentPage - 1}`
       }
     } else {
       $prev = document.createElement('span')
@@ -98,13 +98,13 @@ class Pagination {
   }
 
   renderNextPagination () {
-    let pagesCount = this.itemsLength / this.itemsPerPage
+    const pagesCount = this.itemsLength / this.itemsPerPage
 
     let $next
 
     if (this.currentPage < pagesCount) {
       $next = document.createElement('a')
-      $next.href = `?page=${this.currentPage+ 1}`
+      $next.href = `/?page=${this.currentPage+ 1}`
     } else {
       $next = document.createElement('span')
     }
