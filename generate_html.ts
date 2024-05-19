@@ -22,10 +22,10 @@ async function generateHTML() {
   <meta property='og:image' content="${message.url || 'https://javierarce.github.io/avisos-madrid/card.png'}"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="theme-color" content="#FEF6F0">
-  <meta property="og:title" content="Avisos Madrid | ${message.description.slice(0, 50)}" />
+  <meta property="og:title" content="${message.description.slice(0, 50)}" />
   <meta property="og:site_name" content="Avisos Madrid" />
   <meta name="twitter:title" content="Avisos Madrid | ${message.description.slice(0, 70)}">
-  <meta property="og:description" content="Avisos Madrid | ${message.description}" />
+  <meta property="og:description" content="${message.description}" />
   <meta property="twitter:description" content="Avisos Madrid | ${message.description}" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" />
   <link rel="stylesheet" href="/css/reset.css" />
