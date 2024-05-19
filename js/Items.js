@@ -38,18 +38,17 @@ class Items {
       this.map.visit(item.lat, item.long)
     }
 
-    let content = item.description
+    let content = `<p>${item.description}</p>`
 
     if (item.url) {
       content += `<img src="${item.url}" />`
     } 
 
-    let $content = this.createItem('content', content)
-    let $service = this.createItem('service', item.service)
-    let $footer = this.createItem('footer')
-
-    let time = timeSince(new Date(item.date))
-    let $metadata = this.createItem('metadata', `${time} en ${item.address}`)
+    const time = timeSince(new Date(item.date))
+    const $content = this.createItem('content', content)
+    const $service = this.createItem('service', item.service)
+    const $footer = this.createItem('footer')
+    const $metadata = this.createItem('metadata', `${time} en ${item.address}`)
 
     $item.appendChild($service)
     $item.appendChild($content)

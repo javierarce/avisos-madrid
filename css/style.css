@@ -94,10 +94,15 @@ h1 a {
 .Items {
   margin: 0 0 1em;
   margin: auto;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
 }
 
 .Item {
-  margin: 0 0 1em 0;
+  display: flex;
+  gap: 0.4em;
+  flex-direction: column;
   background: var(--white);
   border-radius: 4px;
   padding: 1em;
@@ -116,12 +121,26 @@ h1 a {
   color: var(--white);
 }
 
-.Item.is-active .Item__service{
+.Item.is-active .Item__service {
   color: var(--white);
 }
 
+
+.Item__content {
+  display: flex;
+  gap: 0.4em;
+  flex-direction: column;
+}
+
+.Item__service {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: var(--active);
+  user-select: none;
+  line-height: 145%;
+}
+
 .Item__footer {
-  margin: 0.8em 0 0 0;
   display: flex;
   opacity: 0.5;
 }
@@ -135,19 +154,9 @@ h1 a {
   line-height: 145%;
 }
 
-.Item__service {
-  margin: 0 0 0.8em 0;
-  font-weight: 500;
-  font-size: 0.8em;
-  color: var(--active);
-  user-select: none;
-  line-height: 145%;
-}
-
 .Item img {
   width: 100%;
-  margin: 0.4em 0 0 0;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .Footer {

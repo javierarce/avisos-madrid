@@ -13,7 +13,7 @@ async function generateHTML() {
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>${message.description.slice(0, 50)}</title>
+  <title>Avisos Madrid | ${message.description.slice(0, 50)}</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="Javier Arce" />
   <meta name="description" content="${message.description}">
@@ -22,12 +22,13 @@ async function generateHTML() {
   <meta property='og:image' content="${message.url || 'https://javierarce.github.io/avisos-madrid/card.png'}"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="theme-color" content="#FEF6F0">
-  <meta property="og:title" content="${message.description.slice(0, 50)}" />
+  <meta property="og:title" content="Avisos Madrid | ${message.description.slice(0, 50)}" />
   <meta property="og:site_name" content="Avisos Madrid" />
-  <meta name="twitter:title" content="${message.description.slice(0, 70)}">
-  <meta property="og:description" content="${message.description}" />
-  <meta property="twitter:description" content="${message.description}" />
+  <meta name="twitter:title" content="Avisos Madrid | ${message.description.slice(0, 70)}">
+  <meta property="og:description" content="Avisos Madrid | ${message.description}" />
+  <meta property="twitter:description" content="Avisos Madrid | ${message.description}" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="/css/reset.css" />
   <link rel="stylesheet" href="/css/style.css" />
   <script>
     const lat = ${message.lat};
@@ -48,7 +49,7 @@ async function generateHTML() {
         <div class="Item">
           <div class="Item__service">${message.service}</div>
           <div class="Item__content">
-          ${message.description}`;
+          <p>${message.description}</p>`;
           
     if (message.url) {
       content += ` <img src="${message.url}" alt="Image">`;
@@ -56,7 +57,10 @@ async function generateHTML() {
 
     content += `
           </div>
-          <div class="Item__footer">${message.date} en ${message.address}</div>
+          <div class="Item__footer">
+<div class="Item__metadata">
+          <span class="js-date" data-date="${message.date}" title="${message.date}"></span> en ${message.address}</div>
+          </div>
         </div>
         <div class="Footer">
           Origen de los datos: Ayuntamiento de Madrid.

@@ -48,6 +48,10 @@ const timeSince  = (date) => {
 }
 
 const onLoad = () => {
+  const $date = document.querySelector('.js-date')
+  const date  = $date.dataset.date
+  $date.textContent = timeSince(new Date(date))
+
   map = new Map(lat, long)
 }
 
