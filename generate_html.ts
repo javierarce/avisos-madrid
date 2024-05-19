@@ -1,7 +1,7 @@
 import { ensureDir } from "https://deno.land/std/fs/ensure_dir.ts";
 
 async function generateHTML() {
-  await ensureDir("./docs/messages");
+  await ensureDir("./m");
 
   // Read JSON file using Deno built-in functions
   const jsonText = await Deno.readTextFile('output.json');
@@ -28,12 +28,12 @@ async function generateHTML() {
     <meta property="og:description" content="${message.description}" />
     <meta property="twitter:description" content="${message.description}" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
-    <script src="../js/Map.js"></script>
-    <script src="../js/Pagination.js"></script>
-    <script src="../js/Items.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="/js/Map.js"></script>
+    <script src="/js/Pagination.js"></script>
+    <script src="/js/Items.js"></script>
+    <script src="/js/main.js"></script>
     </head>
     <body>
     <div class="Content">
@@ -53,7 +53,7 @@ async function generateHTML() {
     </body>
     </html>`;
     
-    await Deno.writeTextFile(`./docs/messages/${message.id}.html`, content);
+    await Deno.writeTextFile(`./m/${message.id}.html`, content);
   }
 }
 
