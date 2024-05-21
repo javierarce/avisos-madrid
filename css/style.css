@@ -63,10 +63,11 @@ ul {
 }
 
 .Header > a {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 h1 {
+  font-size: 1.8em;
   margin: 0;
   line-height: 145%;
 }
